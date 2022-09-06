@@ -20,9 +20,8 @@ function newCard(element){
     cardPhotoContainer.append(cardPhoto);
     cardAuthor.textContent = element.author;
     cardButton.textContent = "Visit";
-    cardPhoto.src = element.download_url;
-    element.height = 600;
-    element.width = 600;
+    var photoUrl = "https://picsum.photos/id/"+element.id+"/600/600/";
+    cardPhoto.src = photoUrl ;
 }
 
 
@@ -34,21 +33,18 @@ function display(object){
 }
 
 
-
 //recuperer photo api
 let page = 2;
 let limit = 10;
 let url = `https://picsum.photos/v2/list?page=${page}&limit=${limit}`;
 fetch(url)
 .then(function(response){
-    console.log(response);
     if(response.ok){
         return Promise.resolve(response.json());
     }else{
         return Promise.reject(new Error("Erreur dans la requete"))
     }
 }).then((photos)=>{
-    console.log(photos);
     display(photos);
     
 }).catch(function(e){

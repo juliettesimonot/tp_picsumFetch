@@ -35,6 +35,8 @@ main section{
     overflow: hidden;
 }
 
+
+/* car info  */
 main .cardInfo{
     display: flex;
     flex-direction: column;
@@ -46,6 +48,7 @@ main .cardInfo{
 main .cardInfo h2{
     font-style: italic;
     margin: 10px 0;
+    text-align: center;
 }
 
 main .cardInfo a{
@@ -53,30 +56,58 @@ main .cardInfo a{
     padding: 5px 40px;
     border-radius: 15px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 main section:nth-child(2n) .cardInfo a{
     background: linear-gradient(to right,#9cd996, #36d2b0);
+   
+}
+
+section:nth-child(2n) .cardInfo a:hover{
+    background: linear-gradient(to right,#c8e6c6, #aee5d9);
 }
 
 main section:nth-child(2n+1) .cardInfo a{
     background: linear-gradient(to right,#63c0ed, #4f81e3);
 }
 
+main section:nth-child(2n+1) .cardInfo a:hover{
+    background: linear-gradient(to right,#b8def0, #a2bff8);
+}
+
+
+
+/* card photo  */
+
+
 main .cardPhotoContainer{
     width: 100%;
     height: 100%;
-    
+    cursor: pointer;
+    overflow: hidden;
 }
 
-main.cardPhotoContainer:hover .cardPhotoContainer img{
-    transform:scale(1.3);
-    
-}
 
 main .cardPhotoContainer img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1s ease-in-out;
+    transition: ease-in-out 0.3s;
+}
+
+.cardPhotoContainer img:hover{
+    transform:scale(1.3)
+}
+
+
+
+@media (max-width:800px) {
+    main{
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 3%;
+    }
+    
 }
